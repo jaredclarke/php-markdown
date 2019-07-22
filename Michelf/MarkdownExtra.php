@@ -514,6 +514,10 @@ class MarkdownExtra extends \Michelf\Markdown {
 			$parts = preg_split($block_tag_re, $text, 2,
 								PREG_SPLIT_DELIM_CAPTURE);
 
+			if (false === $parts) {
+				$text = "";
+				break;
+			}
 			// If in Markdown span mode, add a empty-string span-level hash
 			// after each newline to prevent triggering any block element.
 			if ($span) {

@@ -529,7 +529,7 @@ class MarkdownExtra extends \Michelf\Markdown {
 			$parsed .= $parts[0]; // Text before current tag.
 
 			// If end of $text has been reached. Stop loop.
-			if (count($parts) < 3) {
+			if (is_countable($parts) && count($parts) < 3) {
 				$text = "";
 				break;
 			}
@@ -712,7 +712,7 @@ class MarkdownExtra extends \Michelf\Markdown {
 			// by the pattern.
 			$parts = preg_split($tag_re, $text, 2, PREG_SPLIT_DELIM_CAPTURE);
 
-			if (count($parts) < 3) {
+			if (is_countable($parts) && count($parts) < 3) {
 				// End of $text reached with unbalenced tag(s).
 				// In that case, we return original text unchanged and pass the
 				// first character as filtered to prevent an infinite loop in the
